@@ -31,12 +31,17 @@ public class ShiroController {
     public void userLogin (
             @RequestParam(value = "userName") String userName,
             @RequestParam(value = "passWord") String passWord){
+        System.out.println("abc");
         try{
             Subject subject = ShiroUtils.getSubject();
             UsernamePasswordToken token = new UsernamePasswordToken(userName, passWord);
+            //进入UserRealm.doGetAuthenticationInfo(启动的时候配置类中UserRealm已经注入SecurityManager)
+            //此login方法最终调用配置的realm
+            //UserRealm继承AuthorizingRealm，重写doGetAuthenticationInfo,查看数据库验证
             subject.login(token);
             LOGGER.info("登录成功");
         }catch (Exception e) {
+
             e.printStackTrace();
         }
     }
