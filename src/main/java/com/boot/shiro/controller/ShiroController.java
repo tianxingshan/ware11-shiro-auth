@@ -5,6 +5,7 @@ import com.boot.shiro.util.ShiroUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.web.servlet.ShiroHttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -60,7 +62,7 @@ public class ShiroController {
      */
     @RequestMapping("/menu/list")
     @RequiresPermissions("sys:user:shiro")
-    public List list(){
+    public List list(ShiroHttpServletRequest request,ShiroHttpServletRequest req){
 
         return sysMenuMapper.selectList() ;
     }
@@ -71,7 +73,8 @@ public class ShiroController {
      */
     @RequestMapping("/menu/list2")
     @RequiresPermissions("ccc:ddd:bbb")
-    public List list2(){
+    public List list2(HttpServletRequest request){
+
         return sysMenuMapper.selectList() ;
     }
 
