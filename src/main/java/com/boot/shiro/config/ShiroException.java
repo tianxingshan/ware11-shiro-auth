@@ -6,9 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-//定义该类为全局异常处理类，可以指定处理的controller范围
-
-@RestControllerAdvice(basePackages = {"com.boot.shiro"})
+//定义该类为全局异常处理类,默认
+// basePackages可以指定处理的范围
+@RestControllerAdvice//(basePackages = {"com.boot.shiro"})
 public class ShiroException {
 
     private static Logger logger = LoggerFactory.getLogger(ShiroException.class);
