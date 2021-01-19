@@ -18,6 +18,7 @@ import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * Shiro 认证实体
@@ -75,6 +76,7 @@ public class UserRealm extends AuthorizingRealm {
         if(user == null) {
             throw new UnknownAccountException("账号或密码不正确");
         }
+
         //账号锁定
         if(user.getStatus() == 0){
             throw new LockedAccountException("账号已被锁定,请联系管理员");

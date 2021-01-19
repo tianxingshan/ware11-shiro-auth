@@ -32,18 +32,27 @@ public class ShiroController {
             @RequestParam(value = "userName") String userName,
             @RequestParam(value = "passWord") String passWord){
         System.out.println("abc");
-        try{
-            Subject subject = ShiroUtils.getSubject();
-            UsernamePasswordToken token = new UsernamePasswordToken(userName, passWord);
-            //进入UserRealm.doGetAuthenticationInfo(启动的时候配置类中UserRealm已经注入SecurityManager)
-            //此login方法最终调用配置的realm
-            //UserRealm继承AuthorizingRealm，重写doGetAuthenticationInfo,查看数据库验证
-            subject.login(token);
-            LOGGER.info("登录成功");
-        }catch (Exception e) {
 
-            e.printStackTrace();
-        }
+//        try{
+//            Subject subject = ShiroUtils.getSubject();
+//            UsernamePasswordToken token = new UsernamePasswordToken(userName, passWord);
+//            //进入UserRealm.doGetAuthenticationInfo(启动的时候配置类中UserRealm已经注入SecurityManager)
+//            //此login方法最终调用配置的realm
+//            //UserRealm继承AuthorizingRealm，重写doGetAuthenticationInfo,查看数据库验证
+//            subject.login(token);
+//            LOGGER.info("登录成功");
+//        }
+//        catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        //原先账号密码直接报异常，现改成自定义异常并返回前端，后台不抛异常
+        Subject subject = ShiroUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(userName, passWord);
+        //进入UserRealm.doGetAuthenticationInfo(启动的时候配置类中UserRealm已经注入SecurityManager)
+        //此login方法最终调用配置的realm
+        //UserRealm继承AuthorizingRealm，重写doGetAuthenticationInfo,查看数据库验证
+        subject.login(token);
+        LOGGER.info("登录成功");
     }
 
     /**

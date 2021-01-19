@@ -26,8 +26,8 @@ public class ShiroConfig {
     @Bean("sessionManager")
     public SessionManager sessionManager(){
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
-        //设置session过期时间
-        sessionManager.setGlobalSessionTimeout(60 * 60 * 1000);
+        //设置session过期时间 30 min
+        sessionManager.setGlobalSessionTimeout(20* 60 * 1000);
         sessionManager.setSessionValidationSchedulerEnabled(true);
         // 去掉shiro登录时url里的JSESSIONID
         sessionManager.setSessionIdUrlRewritingEnabled(false);
