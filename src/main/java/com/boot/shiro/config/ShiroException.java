@@ -15,13 +15,13 @@ public class ShiroException {
 
     @ExceptionHandler(AuthorizationException.class)
     public String authorizationException (AuthorizationException e){
-//        logger.error("抱歉您没有权限访问该内容，请先登录");
+        logger.error("抱歉您没有权限访问该内容，请先登录",e);
         return "抱歉您没有权限访问该内容，请先登录!";
     }
 
     @ExceptionHandler(Exception.class)
     public String handleException(Exception e){
-//        logger.error("系统异常",e);
+        logger.error("系统异常",e);
         return "系统异常!";
     }
 

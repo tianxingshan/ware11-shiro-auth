@@ -31,8 +31,6 @@ public class ShiroController {
     public void userLogin (
             @RequestParam(value = "userName") String userName,
             @RequestParam(value = "passWord") String passWord){
-        System.out.println("abc");
-
 //        try{
 //            Subject subject = ShiroUtils.getSubject();
 //            UsernamePasswordToken token = new UsernamePasswordToken(userName, passWord);
