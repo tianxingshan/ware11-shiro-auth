@@ -27,7 +27,7 @@ public class ShiroConfig {
     public SessionManager sessionManager(){
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         //设置session过期时间 5 min
-        sessionManager.setGlobalSessionTimeout(5* 60 * 1000);
+        sessionManager.setGlobalSessionTimeout(20* 60 * 1000);
         sessionManager.setSessionValidationSchedulerEnabled(true);
         // 去掉shiro登录时url里的JSESSIONID
         sessionManager.setSessionIdUrlRewritingEnabled(false);
@@ -51,10 +51,14 @@ public class ShiroConfig {
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
         shiroFilter.setSecurityManager(securityManager);
-        shiroFilter.setLoginUrl("/userLogin");
-//        shiroFilter.setUnauthorizedUrl("/");
+        //设置默认登录的 URL，身份认证失败会访问该 URL
+        shiroFilter.setLoginUrl("/login");
+        //登录了，但是没有授权，会跳转到这个结果
+        shiroFilter.setUnauthorizedUrl("/");
+//        shiroFilter.setSuccessUrl("/menu/list");
         Map<String, String> filterMap = new LinkedHashMap<>();
-        filterMap.put("/userLogin", "anon");
+//        filterMap.put("/userLogin", "anon");
+//        filterMap.put("/menu/list","anon");
         shiroFilter.setFilterChainDefinitionMap(filterMap);
         return shiroFilter;
     }

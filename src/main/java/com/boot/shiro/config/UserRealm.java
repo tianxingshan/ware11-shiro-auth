@@ -18,7 +18,6 @@ import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.*;
-import java.util.logging.Logger;
 
 /**
  * Shiro 认证实体

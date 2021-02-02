@@ -25,12 +25,18 @@ public class ShiroController {
 
     @Resource
     private SysMenuMapper sysMenuMapper ;
+
+    @RequestMapping("/login")
+    public String login(ShiroHttpServletRequest request,ShiroHttpServletRequest req){
+
+        return "登录页面" ;
+    }
     /**
      * 登录测试
      * http://localhost:7011/userLogin?userName=admin&passWord=admin
      */
     @RequestMapping("/userLogin")
-    public void userLogin (
+    public String userLogin (
             @RequestParam(value = "userName") String userName,
             @RequestParam(value = "passWord") String passWord){
 //        try{
@@ -53,6 +59,7 @@ public class ShiroController {
         //UserRealm继承AuthorizingRealm，重写doGetAuthenticationInfo,查看数据库验证
         subject.login(token);
         LOGGER.info("登录成功");
+        return "登录成功";
     }
 
     /**
