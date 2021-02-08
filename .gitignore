@@ -1,3 +1,4 @@
 target
-.idea/*
+**/.idea/
 .gitignore
+ware11-shiro-auth.iml
