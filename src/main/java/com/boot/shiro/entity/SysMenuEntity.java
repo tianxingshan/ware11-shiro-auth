@@ -13,6 +13,7 @@ import java.util.List;
 public class SysMenuEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
+//啊书法大赛分公司的   ======修改1
     @TableId
     private Long menuId;
 
