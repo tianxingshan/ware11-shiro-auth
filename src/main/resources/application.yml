@@ -8,10 +8,10 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      driverClassName: oracle.jdbc.driver.OracleDriver #com.mysql.jdbc.Driver
-      url: jdbc:oracle:thin:@127.0.0.1:1521:orcl #jdbc:mysql://localhost:3306/spring-boot2?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
-      username: wssun #root
-      password: 1234 #root
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/shiro?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: 1234
       initial-size: 10
       max-active: 100
       min-idle: 10
