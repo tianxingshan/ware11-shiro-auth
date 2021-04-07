@@ -21,6 +21,8 @@ public class SysMenuEntity implements Serializable {
     @TableField(exist=false)
     private String parentName;
 
+
+
     private String name;
 
     private String url;
